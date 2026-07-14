@@ -111,8 +111,8 @@
                 <nav class="flex flex-wrap justify-center gap-1 text-[11px] sm:text-sm font-medium bg-slate-800/60 p-1 rounded-xl border border-slate-700/50 flex-1 sm:flex-none">
                     <a href="#overview" class="px-2.5 py-1.5 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition">ទិន្នន័យទូទៅ</a>
                     <a href="#about" class="px-2.5 py-1.5 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition">ចក្ខុវិស័យ</a>
+                    <a href="#staff" class="px-2.5 py-1.5 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition">បុគ្គលិកសិក្សា</a>
                     <a href="#charts" class="px-2.5 py-1.5 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition">ស្ថិតិសិស្ស</a>
-                    <a href="#gallery" class="px-2.5 py-1.5 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition">សកម្មភាព</a>
                 </nav>
                 <!-- ប៊ូតុងប្តូរ Dark Mode សម្រាប់ PC -->
                 <button onclick="toggleTheme()" class="hidden lg:flex p-2 bg-slate-800 rounded-xl border border-slate-700 text-yellow-400 hover:bg-slate-700 transition cursor-pointer" aria-label="Toggle Theme">
@@ -205,7 +205,117 @@
             </div>
         </section>
 
-        <!-- ផ្នែកថ្មី៖ បន្ទះព័ត៌មាន និងព្រឹត្តិការណ៍ចុងក្រោយ (Notice Board) -->
+        <!-- ផ្នែកទី៣៖ រចនាសម្ព័ន្ធគណៈគ្រប់គ្រង និងលោកគ្រូ-អ្នកគ្រូ (កែសម្រួលតាមលំដាប់ឈ្មោះពិតប្រាកដ) -->
+        <section id="staff" class="modern-card p-5 sm:p-8 rounded-3xl border shadow-sm">
+            <h3 class="font-moul text-sm sm:text-lg text-blue-900 dark:text-yellow-400 border-b pb-3 border-slate-200 dark:border-slate-700 flex items-center gap-3 mb-6">
+                <span class="w-3 h-6 bg-emerald-500 rounded-lg inline-block shadow-md"></span>គណៈគ្រប់គ្រង និងលោកគ្រូ-អ្នកគ្រូសាលារៀន
+            </h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- ១. ស៊ិន ពៅ -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-blue-500">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ស៊ិន ពៅ.png" alt="ស៊ិន ពៅ" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ស៊ិន ពៅ</h4>
+                    <p class="text-[10px] sm:text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">លោកនាយកសាលា</p>
+                </div>
+
+                <!-- ២. ឆន ឈឿន -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-blue-400">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ឆន ឈឿន.png" alt="ឆន ឈឿន" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ឆន ឈឿន</h4>
+                    <p class="text-[10px] sm:text-xs text-blue-500 dark:text-blue-400 font-medium mt-0.5">លោកនាយករង</p>
+                </div>
+
+                <!-- ៣. អ៊ាង ម៉ារីណា -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-500">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./អ៊ាង ម៉ារីណា.png" alt="អ៊ាង ម៉ារីណា" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">អ៊ាង ម៉ារីណា</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-600 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ៤. ភឿន ផាន្នី -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-500">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ភឿន ផាន្នី.png" alt="ភឿន ផាន្នី" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ភឿន ផាន្នី</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-600 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ៥. ញឹម សុមនា -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-400">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ញឹម សុមនា.png" alt="ញឹម សុមនា" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ញឹម សុមនា</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-500 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ៦. តូច ស្រីលីន -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-400">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./តូច ស្រីលីន.png" alt="តូច ស្រីលីន" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">តូច ស្រីលីន</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-500 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ៧. ប៊ូថេង ឈុនលី -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-emerald-500">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ប៊ូថេង ឈុនលី.png" alt="ប៊ូថេង ឈុនលី" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ប៊ូថេង ឈុនលី</h4>
+                    <p class="text-[10px] sm:text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">លោកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ៨. គាន ស្រីណុច -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-400">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./គាន ស្រីណុច.png" alt="គាន ស្រីណុច" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">គាន ស្រីណុច</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-500 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ៩. ម៉ឺន ម៉ៅ -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-400">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ម៉ឺន ម៉ៅ.png" alt="ម៉ឺន ម៉ៅ" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ម៉ឺន ម៉ៅ</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-500 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ១០. ម៉ុក ទ្រា -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-emerald-500">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ម៉ុក ទ្រា.png" alt="ម៉ុក ទ្រា" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ម៉ុក ទ្រា</h4>
+                    <p class="text-[10px] sm:text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">លោកគ្រូបង្រៀន</p>
+                </div>
+
+                <!-- ១១. ហឿង លីទាង -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 p-4 rounded-2xl text-center group transition duration-300 hover:shadow-md border-b-4 border-b-pink-400">
+                    <div class="w-24 h-24 sm:w-26 sm:h-26 mx-auto rounded-full overflow-hidden p-1 bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-600">
+                        <img src="./ហឿង លីទាង.png" alt="ហឿង លីទាង" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/150x150/png?text=Staff';">
+                    </div>
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-xs sm:text-base truncate">ហឿង លីទាង</h4>
+                    <p class="text-[10px] sm:text-xs text-pink-500 dark:text-pink-400 font-medium mt-0.5">អ្នកគ្រូបង្រៀន</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ផ្នែកព័ត៌មាន និងព្រឹត្តិការណ៍ចុងក្រោយ -->
         <section id="notice" class="modern-card p-5 sm:p-8 rounded-3xl border shadow-sm">
             <h3 class="font-moul text-sm sm:text-lg text-blue-900 dark:text-yellow-400 border-b pb-3 border-slate-200 dark:border-slate-700 flex items-center gap-3 mb-5">
                 <span class="w-3 h-6 bg-amber-500 rounded-lg inline-block shadow-md"></span>កម្រងព័ត៌មាន និងព្រឹត្តិការណ៍សាលារៀន
@@ -234,7 +344,7 @@
             </div>
         </section>
 
-        <!-- ផ្នែកទី៣៖ ក្រាហ្វិកស្ថិតិ (Visual Analytics) -->
+        <!-- ផ្នែកទី៥៖ ក្រាហ្វិកស្ថិតិ (Visual Analytics) -->
         <section id="charts" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="modern-card p-4 sm:p-6 rounded-3xl border bg-white dark:bg-slate-800/40 shadow-sm">
                 <h4 class="font-moul text-[11px] sm:text-sm text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
@@ -255,7 +365,7 @@
             </div>
         </section>
 
-        <!-- ផ្នែកទី៤៖ វិចិត្រសាលសកម្មភាព (Photo Gallery) -->
+        <!-- ផ្នែកទី៦៖ វិចិត្រសាលសកម្មភាព (Photo Gallery) -->
         <section id="gallery" class="space-y-6">
             <h3 class="font-moul text-sm sm:text-lg text-slate-800 dark:text-slate-200 border-b pb-3 border-slate-100 dark:border-slate-700 flex items-center gap-3">
                 <span class="w-3 h-6 bg-blue-600 rounded-lg inline-block shadow-md shadow-blue-500/20"></span>សកម្មភាពសិក្សា និងសមិទ្ធផលសាលារៀន
@@ -318,7 +428,6 @@
         Chart.defaults.font.size = isMobile ? 9 : 11;
         Chart.defaults.color = '#94a3b8';
 
-        // មុខងារប្តូររចនាបថ Dark / Light Mode
         function toggleTheme() {
             const body = document.body;
             const iconPc = document.getElementById('themeIconPc');
@@ -328,13 +437,13 @@
                 body.classList.remove('light-theme');
                 body.classList.add('dark-theme');
                 const darkSvg = `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>`;
-                iconPc.outerHTML = darkSvg;
+                if(iconPc) iconPc.outerHTML = darkSvg;
                 if(iconMob) iconMob.outerHTML = darkSvg;
             } else {
                 body.classList.remove('dark-theme');
                 body.classList.add('light-theme');
                 const lightSvg = `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14.5 12a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path></svg>`;
-                iconPc.outerHTML = lightSvg;
+                if(iconPc) iconPc.outerHTML = lightSvg;
                 if(iconMob) iconMob.outerHTML = lightSvg;
             }
         }
