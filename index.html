@@ -1,105 +1,342 @@
 <!DOCTYPE html>
-<html lang="km" class="scroll-smooth">
+<html lang="km">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ប្រព័ន្ធសាលាបឋមសិក្សាកញ្ជ្រៀច</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Moul&family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Animate.css for entrance animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
-        body { font-family: 'Kantumruy Pro', sans-serif; background: #f8fafc; }
-        .font-moul { font-family: 'Moul', cursive; }
-        .glass-nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); }
-        /* Optimization: ធានាថាលើទូរស័ព្ទមិនបាត់ទ្រង់ទ្រាយ */
-        @media (max-width: 640px) { .container { padding-left: 1rem; padding-right: 1rem; } }
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: radial-gradient(circle at top right, #f8fafc 0%, #f1f5f9 100%);
+        }
+        .font-moul {
+            font-family: 'Moul', cursive;
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .modern-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modern-card:hover {
+            transform: translateY(-6px);
+        }
+        /* ពណ៌ Soft Shadow ស្អាតៗពេល hover */
+        .card-blue:hover { shadow-color: rgba(37, 99, 235, 0.15); box-shadow: 0 20px 25px -5px var(--tw-shadow-color); }
+        .card-pink:hover { shadow-color: rgba(219, 39, 119, 0.15); box-shadow: 0 20px 25px -5px var(--tw-shadow-color); }
+        .card-emerald:hover { shadow-color: rgba(16, 185, 129, 0.15); box-shadow: 0 20px 25px -5px var(--tw-shadow-color); }
+        .card-amber:hover { shadow-color: rgba(245, 158, 11, 0.15); box-shadow: 0 20px 25px -5px var(--tw-shadow-color); }
+
+        .image-zoom {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .image-container:hover .image-zoom {
+            transform: scale(1.05);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Premium Glow Effect សម្រាប់ Logo */
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 0 8px rgba(250, 204, 21, 0.2), inset 0 0 0 1px rgba(250, 204, 21, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(250, 204, 21, 0.6), inset 0 0 0 1px rgba(250, 204, 21, 0.5); }
+        }
+        .logo-glow-effect {
+            animation: logoGlow 3s infinite ease-in-out;
+        }
+
+        /* Smooth Floating Animation សម្រាប់ Icons */
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .floating-icon {
+            animation: floatAnimation 4s infinite ease-in-out;
+        }
+        .float-delay-1 { animation-delay: 0s; }
+        .float-delay-2 { animation-delay: 0.8s; }
+        .float-delay-3 { animation-delay: 1.6s; }
+        .float-delay-4 { animation-delay: 2.4s; }
     </style>
 </head>
-<body class="text-slate-800 antialiased overflow-x-hidden">
+<body class="text-slate-800 antialiased selection:bg-blue-500 selection:text-white overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="glass-nav text-white sticky top-0 z-50 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-xl overflow-hidden border border-yellow-400/30">
-                    <img src="./1.png" alt="Logo" class="w-full h-full object-cover">
+    <!-- របារម៉ឺនុយខាងលើ (Modern Glassmorphism Header) -->
+    <header class="glass-nav text-white shadow-lg shadow-slate-900/10 sticky top-0 z-50 border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4 animate__animated animate__fadeInLeft">
+                <!-- ឡូហ្គោសាលាពិតប្រាកដ (1.png) រួមជាមួយ Glow Effect -->
+                <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center p-0.5 shrink-0 transform hover:rotate-6 transition duration-300 overflow-hidden logo-glow-effect border border-yellow-400/30">
+                    <img src="./1.png" alt="ឡូហ្គោសាលា" class="w-full h-full object-cover rounded-[14px]" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23facc15\' viewBox=\'0 0 24 24\'><path d=\'M12 2L1 7l11 5 9-4.09V17h2V7L12 2z\'/><path d=\'M4.14 11.52c.69 1.63 2.3 2.78 4.2 2.94A12.08 12.08 0 0012 15a12.08 12.08 0 003.66-.54c1.9-.16 3.51-1.31 4.2-2.94L12 15.05l-7.86-3.53z\'/></svg>';">
                 </div>
-                <h1 class="font-moul text-lg text-yellow-400 truncate">សាលាបឋមសិក្សាកញ្ជ្រៀច</h1>
+                <div>
+                    <h1 class="font-moul text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-200 leading-relaxed">ប្រព័ន្ធសាលាបឋមសិក្សាកញ្ជ្រៀច</h1>
+                    <p class="text-xs md:text-sm text-slate-400 font-light tracking-wide mt-0.5">ប្រព័ន្ធរាយការណ៍ តាមដានទិន្នន័យ និងស្ថិតិអប់រំស្តង់ដា</p>
+                </div>
             </div>
-            <nav class="hidden md:flex gap-4 text-sm">
-                <a href="#overview" class="hover:text-yellow-400">ទិន្នន័យ</a>
-                <a href="#charts" class="hover:text-yellow-400">ស្ថិតិ</a>
+            <nav class="flex flex-wrap justify-center gap-1 md:gap-2 text-sm font-medium animate__animated animate__fadeInRight bg-slate-800/50 p-1.5 rounded-xl border border-slate-700/50">
+                <a href="#overview" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition duration-300">ទិន្នន័យទូទៅ</a>
+                <a href="#about" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition duration-300">ចក្ខុវិស័យ</a>
+                <a href="#charts" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition duration-300">ស្ថិតិសិស្ស</a>
+                <a href="#gallery" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:text-yellow-400 hover:bg-slate-700/50 transition duration-300">សកម្មភាពសិក្សា</a>
             </nav>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
-        <!-- Stats Grid - លឿននិងឆ្លើយតបគ្រប់ទំហំ -->
-        <section id="overview" class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-blue-600">
-                <p class="text-[10px] text-slate-400 uppercase">សិស្សសរុប</p>
-                <h3 class="text-xl font-bold">២៩២</h3>
+    <!-- ខ្លឹមសារចម្បង (Main Content) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+
+        <!-- ផ្នែកទី១៖ បន្ទះបង្ហាញទិន្នន័យសង្ខេប (Responsive Grid ឥតខ្ចោះគ្រប់ឧបករណ៍) -->
+        <section id="overview" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 animate__animated animate__fadeInUp">
+            <!-- កាតសិស្សសរុប -->
+            <div class="modern-card card-blue p-4 sm:p-6 rounded-3xl border border-slate-200/60 shadow-sm flex items-center justify-between relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1.5 sm:w-2 h-full bg-blue-600"></div>
+                <div>
+                    <p class="text-slate-400 font-medium text-[11px] sm:text-xs tracking-wider uppercase">សិស្សសរុប</p>
+                    <h3 class="text-xl sm:text-3xl font-bold text-slate-800 mt-1 sm:mt-2 group-hover:text-blue-600 transition duration-300">២៩២ នាក់</h3>
+                </div>
+                <div class="p-2 sm:p-4 bg-blue-50 text-blue-600 rounded-xl sm:rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 floating-icon float-delay-1 hidden sm:flex">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
             </div>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-pink-500">
-                <p class="text-[10px] text-slate-400 uppercase">សិស្សស្រី</p>
-                <h3 class="text-xl font-bold">២៥០</h3>
+
+            <!-- កាតសិស្សស្រី -->
+            <div class="modern-card card-pink p-4 sm:p-6 rounded-3xl border border-slate-200/60 shadow-sm flex items-center justify-between relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1.5 sm:w-2 h-full bg-pink-500"></div>
+                <div>
+                    <p class="text-slate-400 font-medium text-[11px] sm:text-xs tracking-wider uppercase">សិស្សស្រី</p>
+                    <h3 class="text-xl sm:text-3xl font-bold text-slate-800 mt-1 sm:mt-2 group-hover:text-pink-600 transition duration-300">២៥០ នាក់</h3>
+                </div>
+                <div class="p-2 sm:p-4 bg-pink-50 text-pink-500 rounded-xl sm:rounded-2xl group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 floating-icon float-delay-2 hidden sm:flex">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </div>
             </div>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-emerald-500">
-                <p class="text-[10px] text-slate-400 uppercase">គ្រូ</p>
-                <h3 class="text-xl font-bold">១៧</h3>
+
+            <!-- កាតលោកគ្រូ-អ្នកគ្រូ -->
+            <div class="modern-card card-emerald p-4 sm:p-6 rounded-3xl border border-slate-200/60 shadow-sm flex items-center justify-between relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1.5 sm:w-2 h-full bg-emerald-500"></div>
+                <div>
+                    <p class="text-slate-400 font-medium text-[11px] sm:text-xs tracking-wider uppercase">បុគ្គលិក/គ្រូ</p>
+                    <h3 class="text-xl sm:text-3xl font-bold text-slate-800 mt-1 sm:mt-2 group-hover:text-emerald-600 transition duration-300">១៧ នាក់</h3>
+                </div>
+                <div class="p-2 sm:p-4 bg-emerald-50 text-emerald-500 rounded-xl sm:rounded-2xl group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 floating-icon float-delay-3 hidden sm:flex">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
             </div>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-amber-500">
-                <p class="text-[10px] text-slate-400 uppercase">ថ្នាក់រៀន</p>
-                <h3 class="text-xl font-bold">១៣</h3>
+
+            <!-- កាតថ្នាក់រៀន -->
+            <div class="modern-card card-amber p-4 sm:p-6 rounded-3xl border border-slate-200/60 shadow-sm flex items-center justify-between relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1.5 sm:w-2 h-full bg-amber-500"></div>
+                <div>
+                    <p class="text-slate-400 font-medium text-[11px] sm:text-xs tracking-wider uppercase">បន្ទប់/ថ្នាក់</p>
+                    <h3 class="text-xl sm:text-3xl font-bold text-slate-800 mt-1 sm:mt-2 group-hover:text-amber-600 transition duration-300">១៣ ថ្នាក់</h3>
+                </div>
+                <div class="p-2 sm:p-4 bg-amber-50 text-amber-500 rounded-xl sm:rounded-2xl group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 floating-icon float-delay-4 hidden sm:flex">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="bg-white p-6 rounded-2xl shadow-sm">
-            <h3 class="font-moul text-blue-900 mb-3">ប្រវត្តិសាលា</h3>
-            <img src="./photo_2025-12-27_06-50-06.jpg" alt="សាលា" class="w-full h-48 object-cover rounded-xl mb-4">
-            <p class="text-sm text-slate-600 leading-relaxed">សាលាបឋមសិក្សាកញ្ជ្រៀច ផ្តល់ការអប់រំមូលដ្ឋានដល់កុមារគ្រប់រូបក្នុងសហគមន៍...</p>
+        <!-- ផ្នែកទី២៖ អត្តសញ្ញាណ ប្រវត្តិសាលា និងចក្ខុវិស័យ -->
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- ប្រវត្តិសាលា -->
+            <div class="modern-card p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm lg:col-span-2 space-y-6">
+                <h3 class="font-moul text-base sm:text-lg text-slate-800 border-b pb-3 border-slate-100 flex items-center gap-3">
+                    <span class="w-3 h-6 bg-blue-600 rounded-lg inline-block shadow-md shadow-blue-500/20"></span>ប្រវត្តិសង្ខេបសាលារៀន
+                </h3>
+                <p class="text-slate-600 leading-relaxed text-justify text-xs sm:text-base">
+                    សាលាបឋមសិក្សាកញ្ជ្រៀច ដើរតួនាទីយ៉ាងសំខាន់ក្នុងការផ្តល់ការអប់រំ និងចំណេះដឹងមូលដ្ឋានដល់កុមារគ្រប់រូបក្នុងសហគមន៍។ ឆ្លងកាត់ដំណាក់កាលអភិវឌ្ឍន៍ជាច្រើនឆ្នាំ ក្រោមការដឹកនាំ និងការសហការយ៉ាងស្អិតរមួត សាលារៀនបានកែលម្អហេដ្ឋារចនាសម្ព័ន្ធជាបន្តបន្ទាប់ ទាំងអគារសិក្សា បរិស្ថានរូបវន្ត បណ្ណាល័យ និងការបំពាក់ឧបករណ៍បច្ចេកវិទ្យា ដើម្បីឆ្លើយតបទៅនឹងគោលនយោបាយ «ស្តង់ដាសាលារៀនគំរូ» ក្នុងការលើកកម្ពស់គុណភាពអប់រំ និងការសិក្សាតាមបែបឌីជីថល។
+                </p>
+                <div class="image-container overflow-hidden rounded-2xl shadow-sm border border-slate-200/40">
+                    <img src="./photo_2025-12-27_06-50-06.jpg" alt="សាលាបឋមសិក្សាកញ្ជ្រៀច" class="w-full h-48 sm:h-72 object-cover image-zoom">
+                </div>
+            </div>
+
+            <!-- ព័ត៌មានចក្ខុវិស័យ -->
+            <div class="flex flex-col">
+                <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 p-6 sm:p-8 rounded-3xl shadow-xl shadow-slate-900/10 text-white space-y-4 sm:space-y-6 border border-slate-800 h-full flex flex-col justify-center">
+                    <h3 class="font-moul text-sm sm:text-base text-yellow-400 border-b pb-3 border-slate-700/60 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        ចក្ខុវិស័យសាលា
+                    </h3>
+                    <p class="text-slate-300 text-xs sm:text-base leading-loose text-justify font-light italic">
+                        "កសាងបរិស្ថានសិក្សាប្រកបដោយសុវត្ថិភាព វិន័យ គុណធម៌ លើកកម្ពស់គុណភាពបង្រៀន និងជំរុញសមត្ថភាពសិស្សានុសិស្សឱ្យមានមូលដ្ឋានគ្រឹះចំណេះដឹងរឹងមាំ ដើម្បីក្លាយជាពលរដ្ឋគំរូក្នុងសង្គមជាតិ Bim।"
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <!-- Charts Section -->
-        <section id="charts" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-4 rounded-2xl shadow-sm"><canvas id="studentChart" class="max-h-60"></canvas></div>
-            <div class="bg-white p-4 rounded-2xl shadow-sm"><canvas id="attendanceChart" class="max-h-60"></canvas></div>
+        <!-- ផ្នែកទី៣៖ ក្រាហ្វិកស្ថិតិ (Visual Analytics) -->
+        <section id="charts" class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            <div class="modern-card p-4 sm:p-6 rounded-3xl border border-slate-200/60 shadow-sm bg-white">
+                <h4 class="font-moul text-[11px] sm:text-sm text-slate-700 mb-4 sm:mb-6 flex items-center gap-2">
+                    <span class="w-2.5 h-5 bg-blue-600 rounded-md"></span>ស្ថិតិសិស្សស្រី-ប្រុស តាមកម្រិតថ្នាក់ (ថ្នាក់ទី១ - ទី៦)
+                </h4>
+                <div class="relative w-full h-60 sm:h-72">
+                    <canvas id="studentChart"></canvas>
+                </div>
+            </div>
+
+            <div class="modern-card p-4 sm:p-6 rounded-3xl border border-slate-200/60 shadow-sm bg-white">
+                <h4 class="font-moul text-[11px] sm:text-sm text-slate-700 mb-4 sm:mb-6 flex items-center gap-2">
+                    <span class="w-2.5 h-5 bg-emerald-500 rounded-md"></span>អត្រាវត្តមានសិស្សមកសិក្សាប្រចាំខែ (%)
+                </h4>
+                <div class="relative w-full h-60 sm:h-72">
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+            </div>
         </section>
+
+        <!-- ផ្នែកទី៤៖ វិចិត្រសាលសកម្មភាព (Photo Gallery) -->
+        <section id="gallery" class="space-y-6">
+            <h3 class="font-moul text-base sm:text-lg text-slate-800 border-b pb-3 border-slate-100 flex items-center gap-3">
+                <span class="w-3 h-6 bg-blue-600 rounded-lg inline-block shadow-md shadow-blue-500/20"></span>សកម្មភាពសិក្សា និងសមិទ្ធផលសាលារៀន
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- សកម្មភាពទី១ -->
+                <div class="modern-card overflow-hidden rounded-3xl border border-slate-200/60 shadow-sm bg-white group flex flex-col">
+                    <div class="image-container overflow-hidden h-44 sm:h-52 bg-slate-100 relative">
+                        <img src="./photo_2026-01-28_07-49-35.jpg" alt="សកម្មភាពសាលា" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-5 flex-1 flex items-center">
+                        <p class="font-semibold text-slate-700 text-xs sm:text-sm leading-relaxed group-hover:text-blue-600 transition duration-300">សកម្មភាពចែកប័ណ្ណសរសើរជូនសិស្សពូកែល្បឿនអំណាន</p>
+                    </div>
+                </div>
+                
+                <!-- សកម្មភាពទី២ -->
+                <div class="modern-card overflow-hidden rounded-3xl border border-slate-200/60 shadow-sm bg-white group flex flex-col">
+                    <div class="image-container overflow-hidden h-44 sm:h-52 bg-slate-100 relative">
+                        <img src="./photo_2026-02-10_11-38-53.jpg" alt="សកម្មភាពសាលា" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-5 flex-1 flex items-center">
+                        <p class="font-semibold text-slate-700 text-xs sm:text-sm leading-relaxed group-hover:text-blue-600 transition duration-300">សកម្មភាពអប់រំចរិយាធម៌ជូនសិស្សានុសិស្ស</p>
+                    </div>
+                </div>
+
+                <!-- សកម្មភាពទី៣ -->
+                <div class="modern-card overflow-hidden rounded-3xl border border-slate-200/60 shadow-sm bg-white group flex flex-col">
+                    <div class="image-container overflow-hidden h-44 sm:h-52 bg-slate-100 relative">
+                        <img src="./photo_2025-12-27_06-50-06.jpg" alt="សកម្មភាពសាលា" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-5 flex-1 flex items-center">
+                        <p class="font-semibold text-slate-700 text-xs sm:text-sm leading-relaxed group-hover:text-blue-600 transition duration-300">ការលើកកម្ពស់បរិស្ថាន និងទិដ្ឋភាពរួមនៃសាលារៀន</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="text-center py-6 text-xs text-slate-500">
-        © 2026 សាលាបឋមសិក្សាកញ្ជ្រៀច | គ្រប់គ្រងដោយ៖ លោកគ្រូ អ៊ាង យ៉ាឌីន
+    <!-- ផ្នែកខាងក្រោម (Modern Footer) -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs sm:text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 space-y-3">
+            <p class="font-medium text-slate-300">© 2026 សាលាបឋមសិក្សាកញ្ជ្រៀច។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+            <p class="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+                រៀបចំ និងគ្រប់គ្រងប្រព័ន្ធបច្ចេកវិទ្យាដោយ៖ <br>
+                <span class="text-amber-400 font-semibold text-sm inline-block mt-1">លោកគ្រូ អ៊ាង យ៉ាឌីន</span> <br> 
+                <span class="text-blue-400 font-medium text-[11px] uppercase tracking-wider">មន្រ្តីទីចាត់ការ (ICT ខេត្តព្រៃវែង)</span>
+            </p>
+        </div>
     </footer>
 
+    <!-- JavaScript សម្រាប់ដំណើរការក្រាហ្វិក -->
     <script>
-        // Optimization: កាត់បន្ថយ animation លើទូរស័ព្ទដើម្បីកុំឱ្យយឺត
+        // បើបើកលើទូរស័ព្ទដៃ ឱ្យបិទ animation ដើម្បីដំណើរការលឿន មិនគាំង
         const isMobile = window.innerWidth < 768;
-        Chart.defaults.animation = !isMobile;
+
+        Chart.defaults.font.family = 'Kantumruy Pro';
+        Chart.defaults.font.size = isMobile ? 9 : 11;
+        Chart.defaults.color = '#64748b';
 
         const ctxStudent = document.getElementById('studentChart').getContext('2d');
         new Chart(ctxStudent, {
             type: 'bar',
             data: {
-                labels: ['ថ១', 'ថ២', 'ថ៣', 'ថ៤', 'ថ៥', 'ថ៦'],
+                labels: ['ថ្នាក់ទី១', 'ថ្នាក់ទី២', 'ថ្នាក់ទី៣', 'ថ្នាក់ទី៤', 'ថ្នាក់ទី៥', 'ថ្នាក់ទី៦'],
                 datasets: [
-                    { label: 'ប្រុស', data: [5, 6, 8, 7, 7, 9], backgroundColor: '#2563eb' },
-                    { label: 'ស្រី', data: [42, 43, 41, 40, 44, 40], backgroundColor: '#db2777' }
+                    { 
+                        label: 'ប្រុស', 
+                        data: [5, 6, 8, 7, 7, 9], // សរុបប្រុស ៤២ នាក់ (២៩២ - ២៥០ ស្រី)
+                        backgroundColor: '#2563eb', 
+                        hoverBackgroundColor: '#1d4ed8',
+                        borderRadius: 4,
+                        barPercentage: 0.6,
+                        categoryPercentage: 0.7
+                    },
+                    { 
+                        label: 'ស្រី', 
+                        data: [42, 43, 41, 40, 44, 40], // សរុបស្រី ២៥០ នាក់
+                        backgroundColor: '#db2777', 
+                        hoverBackgroundColor: '#be185d',
+                        borderRadius: 4,
+                        barPercentage: 0.6,
+                        categoryPercentage: 0.7
+                    }
                 ]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: isMobile ? false : { duration: 1500, easing: 'easeOutQuart' },
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { weight: '500' } } } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#f1f5f9' }, border: { dash: [5, 5] } },
+                    x: { grid: { display: false } }
+                }
+            }
         });
 
         const ctxAttendance = document.getElementById('attendanceChart').getContext('2d');
+        const gradient = ctxAttendance.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(16, 185, 129, 0.24)');
+        gradient.addColorStop(1, 'rgba(16, 185, 129, 0.01)');
+
         new Chart(ctxAttendance, {
             type: 'line',
             data: {
                 labels: ['តុលា', 'វិច្ឆិកា', 'ធ្នូ', 'មករា', 'កុម្ភៈ', 'មីនា'],
-                datasets: [{ label: '%វត្តមាន', data: [95, 96, 94, 97, 95, 96], borderColor: '#10b981', fill: true }]
+                datasets: [{
+                    label: 'អត្រាមកសិក្សាសរុប (%)',
+                    data: [95.2, 96.5, 94.8, 97.1, 95.9, 96.8],
+                    borderColor: '#10b981', 
+                    backgroundColor: gradient,
+                    fill: true,
+                    tension: 0.35,
+                    borderWidth: 3,
+                    pointRadius: isMobile ? 3 : 5,
+                    pointBackgroundColor: '#10b981',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointHoverRadius: 7
+                }]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: isMobile ? false : { duration: 1800, easing: 'easeOutElastic' },
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { weight: '500' } } } },
+                scales: {
+                    y: { min: 90, max: 100, grid: { color: '#f1f5f9' }, border: { dash: [5, 5] } },
+                    x: { grid: { display: false } }
+                }
+            }
         });
     </script>
 </body>
